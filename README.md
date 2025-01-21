@@ -9,14 +9,6 @@
   - Gerenciamento de estado com React Hooks.
   - Estilização com CSS e/ou bibliotecas como Material-UI.
 
-- **Backend**: Node.js  
-  - API RESTful desenvolvida com Express.
-  - Conexão com banco de dados (se aplicável) para gerenciamento de informações.
-
-- **Outras Ferramentas**:  
-  - npm/yarn para gerenciamento de dependências.
-  - Axios ou Fetch API para comunicação entre o frontend e o backend.
-
 ## 🚀 Funcionalidades
 
 - Exibição de uma lista de livros disponíveis.
