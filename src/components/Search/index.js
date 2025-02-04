@@ -1,5 +1,7 @@
 import Input from "../Input";
 import styled from "styled-components";
+import { useState } from "react";
+import { books } from './searchData';
 
 
 const SearchContainer = styled.section`
@@ -25,11 +27,21 @@ const Subtitle = styled.h3`
 `
 
 function Search() {
+
+    const [booksSearched, setSearchedBooks] = useState([]);
+
+    console.log(booksSearched)
     return (
         <SearchContainer>
             <Title>Já sabe por onde começar ?</Title>
             <Subtitle>Encontre seu livro na nossa estante.</Subtitle>
-            <Input placeholder="Digite o nome do livro" />
+            <Input placeholder="Digite o nome do livro"
+                onBlur={event => {
+                    const typedText = event.target.value
+                    const searchResult = books.filter(book => book.nome.includes(typedText))
+                    setSearchedBooks(searchResult)
+                }}
+            />
         </SearchContainer>
     );
 }
