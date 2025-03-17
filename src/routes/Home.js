@@ -1,5 +1,5 @@
-import Search from './components/Search';
-import LatestReleases from './components/LatestReleases';
+import Search from '../components/Search';
+import LatestReleases from '../components/LatestReleases';
 import styled from 'styled-components';
 
 const AppContainer = styled.div`
