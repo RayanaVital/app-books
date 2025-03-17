@@ -1,7 +1,8 @@
 import Logo from "../Logo";
 import HeaderOptions from "../HeaderOptions";
-import IconsOptions from "../IconsOptions"; 
+import IconsOptions from "../IconsOptions";
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
 
 const HeaderContainer = styled.header`
@@ -13,9 +14,11 @@ background-color: #FFF;
 function Header() {
   return (
     <HeaderContainer>
+      <Link to="/">
         <Logo />
-        <HeaderOptions />
-        <IconsOptions />
+      </Link>
+      <HeaderOptions />
+      <IconsOptions />
     </HeaderContainer>
   );
 }
