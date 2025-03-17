@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const textOptions = ['CATEGORIAS', 'MINHA ESTANTE', 'FAVORITOS']
+const textOptions = ['CATEGORIAS', 'ESTANTE', 'FAVORITOS']
 const Option = styled.li`
     min-width: 120px;
     font-size: 16px;
@@ -21,7 +22,10 @@ const Options = styled.ul`
 function HeaderOptions() {
     return (
         <Options>
-            {textOptions.map((text) => <Option><p>{text}</p></Option>)}
+            {textOptions.map((text) =>
+                <Link to={`/${text.toLocaleLowerCase()}`} >
+                    <Option><p>{text}</p></Option>
+                </Link>)}
         </Options>
     );
 }

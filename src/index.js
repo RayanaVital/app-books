@@ -32,7 +32,7 @@ root.render(
     <GlobalStyle />
     <BrowserRouter>
       <Routes>
-        <Route path="favorites" element={<p>Oi</p>} />
+        <Route path="favoritos" element={<p>Oi</p>} />
         <Route path="/" element={<App />} />
       </Routes>
     </BrowserRouter>
