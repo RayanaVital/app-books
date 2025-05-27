@@ -1,7 +1,7 @@
 import Input from "../Input";
 import styled from "styled-components";
-import { useState } from "react";
-import { books } from './searchData';
+import { useEffect, useState } from "react";
+import { getBooks } from "../../services/books";
 
 
 const SearchContainer = styled.section`
@@ -46,6 +46,18 @@ const Result = styled.div`
 function Search() {
 
     const [booksSearched, setSearchedBooks] = useState([]);
+    const [books, setBooks] = useState([]);   
+    
+    useEffect(() => {
+
+        fetchBooks();
+        
+    }, []);
+
+    async function fetchBooks() {
+        const booksApi = await getBooks();
+        setBooks(booksApi);
+    }
 
     return (
         <SearchContainer>
@@ -54,14 +66,14 @@ function Search() {
             <Input placeholder="Digite o nome do livro"
                 onBlur={event => {
                     const typedText = event.target.value
-                    const searchResult = books.filter(book => book.nome.includes(typedText))
+                    const searchResult = books.filter(book => book.title.includes(typedText))
                     setSearchedBooks(searchResult)
                 }}
             />
        { booksSearched.map(book => (
            <Result>
-           <img src={book.src} alt="livro"/>
-           <p>{book.nome}</p>
+           <img src={book.image} alt={book.title}/>
+           <p>{book.title}</p>
        </Result>
         ))
        }

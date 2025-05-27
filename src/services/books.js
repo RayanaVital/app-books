@@ -6,8 +6,8 @@ const booksApi = axios.create({
     baseURL: "http://localhost:8000/books",
 
 });
-function getBooks() {
-    const response =  booksApi.get("/");
+async function getBooks() {
+    const response =  await booksApi.get("/");
     return response.data;
 }
 
